@@ -1,17 +1,17 @@
 {
   "version": 1,
   "code": {
-    "owner": "{ORG}",
-    "repo": "{REPO}",
+    "owner": "corneliu-iancu",
+    "repo": "rowan-store",
     "source": {
       "type": "github",
-      "url": "https://github.com/{ORG}/{REPO}"
+      "url": "https://github.com/corneliu-iancu/rowan-store"
     }
   },
   "content": {
     "source": {
-      "url": "{CONTENT_SOURCE}",
-      "type": "onedrive"
+      "url": "https://da.live/corneliu-iancu/rowan-store",
+      "type": "dalive"
     }
   },
   "folders": {
@@ -19,10 +19,10 @@
   },
   "cdn": {
     "live": {
-      "host": "main--{SITE}--{ORG}.aem.live"
+      "host": "main--rowan-store--corneliu-iancu.aem.live"
     },
     "preview": {
-      "host": "main--{SITE}--{ORG}.aem.page"
+      "host": "main--rowan-store--corneliu-iancu.aem.page"
     }
   },
   "headers": {},
