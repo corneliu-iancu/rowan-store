@@ -1,7 +1,0 @@
-mountpoints:
-  /:
-    url: https://content.da.live/corneliu-iancu/rowan-store/
-    type: markup
-
-folders:
-  /products/: /products/default
