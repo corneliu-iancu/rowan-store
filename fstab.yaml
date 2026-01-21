@@ -1,2 +1,5 @@
 mountpoints:
   /: https://da.live/corneliu-iancu/rowan-store
+
+folders:
+  /products/: /products/default
