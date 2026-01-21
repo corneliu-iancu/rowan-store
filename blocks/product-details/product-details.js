@@ -125,8 +125,52 @@ export default async function decorate(block) {
 
   block.replaceChildren(fragment);
 
+  /**
+   * Checks if a URL is a Vimeo embed URL
+   * @param {string} url - URL to check
+   * @returns {boolean}
+   */
+  const isVimeoEmbed = (url) => url?.includes('player.vimeo.com');
+
+  /**
+   * Renders a Vimeo video iframe
+   * @param {HTMLElement} container - Container element
+   * @param {string} url - Vimeo embed URL
+   * @param {string} title - Video title for accessibility
+   */
+  const renderVideoEmbed = (container, url, title = 'Product Video') => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'pdp-video-wrapper';
+    wrapper.innerHTML = `
+      <iframe
+        src="${url}?autoplay=1&muted=1&badge=0&autopause=0&player_id=0"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title="${title}"
+      ></iframe>
+    `;
+    container.replaceChildren(wrapper);
+  };
+
   const gallerySlots = {
     CarouselThumbnail: (ctx) => {
+      const { defaultImageProps } = ctx;
+      const imageUrl = defaultImageProps?.src;
+
+      // For video thumbnails, show a play button overlay or placeholder
+      if (isVimeoEmbed(imageUrl)) {
+        const wrapper = document.createElement('span');
+        wrapper.className = 'pdp-video-thumbnail';
+        wrapper.innerHTML = `
+          <span class="pdp-video-thumbnail__icon">▶</span>
+        `;
+        ctx.replaceWith(wrapper);
+        return;
+      }
+
       tryRenderAemAssetsImage(ctx, {
         ...imageSlotConfig(ctx),
         wrapper: document.createElement('span'),
@@ -134,6 +178,17 @@ export default async function decorate(block) {
     },
 
     CarouselMainImage: (ctx) => {
+      const { defaultImageProps } = ctx;
+      const imageUrl = defaultImageProps?.src;
+
+      // Render video iframe for Vimeo embeds
+      if (isVimeoEmbed(imageUrl)) {
+        const container = document.createElement('div');
+        renderVideoEmbed(container, imageUrl, defaultImageProps?.alt);
+        ctx.replaceWith(container);
+        return;
+      }
+
       tryRenderAemAssetsImage(ctx, {
         ...imageSlotConfig(ctx),
       });
