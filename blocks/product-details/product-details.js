@@ -24,6 +24,7 @@ import ProductDescription from '@dropins/storefront-pdp/containers/ProductDescri
 import ProductAttributes from '@dropins/storefront-pdp/containers/ProductAttributes.js';
 import ProductGallery from '@dropins/storefront-pdp/containers/ProductGallery.js';
 import ProductGiftCardOptions from '@dropins/storefront-pdp/containers/ProductGiftCardOptions.js';
+import ProductDownloadableOptions from '@dropins/storefront-pdp/containers/ProductDownloadableOptions.js';
 
 // Libs
 import {
@@ -98,6 +99,7 @@ export default async function decorate(block) {
         <div class="product-details__gallery"></div>
         <div class="product-details__short-description"></div>
         <div class="product-details__gift-card-options"></div>
+        <div class="product-details__downloadable-options"></div>
         <div class="product-details__configuration">
           <div class="product-details__options"></div>
           <div class="product-details__quantity"></div>
@@ -121,6 +123,7 @@ export default async function decorate(block) {
   const $options = fragment.querySelector('.product-details__options');
   const $quantity = fragment.querySelector('.product-details__quantity');
   const $giftCardOptions = fragment.querySelector('.product-details__gift-card-options');
+  const $downloadableOptions = fragment.querySelector('.product-details__downloadable-options');
   const $addToCart = fragment.querySelector('.product-details__buttons__add-to-cart');
   const $wishlistToggleBtn = fragment.querySelector('.product-details__buttons__add-to-wishlist');
   const $description = fragment.querySelector('.product-details__description');
@@ -156,6 +159,7 @@ export default async function decorate(block) {
     _options,
     _quantity,
     _giftCardOptions,
+    _downloadableOptions,
     _description,
     _attributes,
     wishlistToggleBtn,
@@ -198,8 +202,14 @@ export default async function decorate(block) {
     pdpRendered.render(ProductShortDescription, {})($shortDescription),
 
     // Configuration - Swatches
+    // Using the transformer prop to convert dropdown options to text swatches (radio buttons)
     pdpRendered.render(ProductOptions, {
       hideSelectedValue: false,
+      transformer: (options) => options.map((option) => ({
+        ...option,
+        // Convert dropdown options to text swatches for better UX
+        type: option.type === 'dropdown' ? 'text' : option.type,
+      })),
       slots: {
         SwatchImage: (ctx) => {
           tryRenderAemAssetsImage(ctx, {
@@ -215,6 +225,9 @@ export default async function decorate(block) {
 
     // Configuration  Gift Card Options
     pdpRendered.render(ProductGiftCardOptions, {})($giftCardOptions),
+
+    // Configuration - Downloadable Options (for downloadable products like software, music, ebooks)
+    pdpRendered.render(ProductDownloadableOptions, {})($downloadableOptions),
 
     // Description
     pdpRendered.render(ProductDescription, {})($description),

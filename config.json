@@ -1,8 +1,8 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://www.aemshop.net/graphql",
-      "commerce-endpoint": "https://www.aemshop.net/cs-graphql",
+      "commerce-core-endpoint": "https://na1-qa.api.commerce.adobe.com/RZAZt2xhz7wr8bExYMAB6c/graphql",
+      "commerce-endpoint": "https://na1-qa.api.commerce.adobe.com/RZAZt2xhz7wr8bExYMAB6c/graphql",
       "commerce-assets-enabled": false,
       "headers": {
         "all": {
@@ -21,7 +21,7 @@
         "aep-datastream-id": null,
         "base-currency-code": "USD",
         "environment": "Testing",
-        "environment-id": "f38a0de0-764b-41fa-bd2c-5bc2f3c7b39a",
+        "environment-id": "RZAZt2xhz7wr8bExYMAB6c",
         "store-code": "main_website_store",
         "store-id": 1,
         "store-name": "Main Website Store",
