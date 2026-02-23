@@ -565,17 +565,6 @@ export async function fetchPlaceholders(path) {
 export async function getConfigFromSession() {
   const configURL = `${window.location.origin}/config.json`;
 
-  // Commerce endpoint override — bypasses admin-level config
-  const COMMERCE_ENDPOINT = 'https://na1-qa.api.commerce.adobe.com/RZAZt2xhz7wr8bExYMAB6c/graphql';
-
-  function applyEndpointOverrides(cfg) {
-    if (cfg?.public?.default) {
-      cfg.public.default['commerce-core-endpoint'] = COMMERCE_ENDPOINT;
-      cfg.public.default['commerce-endpoint'] = COMMERCE_ENDPOINT;
-    }
-    return cfg;
-  }
-
   try {
     const configJSON = window.sessionStorage.getItem('config');
     if (!configJSON) {
@@ -589,14 +578,14 @@ export async function getConfigFromSession() {
     ) {
       throw new Error('Config expired');
     }
-    return applyEndpointOverrides(parsedConfig);
+    return parsedConfig;
   } catch (e) {
     const config = await fetch(configURL);
     if (!config.ok) throw new Error('Failed to fetch config');
     const configJSON = await config.json();
     configJSON[':expiry'] = Math.round(Date.now() / 1000) + 7200;
     window.sessionStorage.setItem('config', JSON.stringify(configJSON));
-    return applyEndpointOverrides(configJSON);
+    return configJSON;
   }
 }
 
