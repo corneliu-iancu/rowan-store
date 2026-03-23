@@ -1,8 +1,8 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://na1.api.commerce.adobe.com/LpGqYAvuEjGBjjvnUDx5SP/graphql",
-      "commerce-endpoint": "https://na1.api.commerce.adobe.com/LpGqYAvuEjGBjjvnUDx5SP/graphql",
+      "commerce-core-endpoint": "https://mcstaging.aemshop.net/graphql",
+      "commerce-endpoint": "https://catalog-service-sandbox.adobe.io/graphql",
       "commerce-assets-enabled": false,
       "headers": {
         "all": {
@@ -12,16 +12,16 @@
           "Magento-Store-Code": "main_website_store",
           "Magento-Store-View-Code": "default",
           "Magento-Website-Code": "base",
-          "x-api-key": "4dfa19c9fe6f4cccade55cc5b3da94f7",
-          "Magento-Environment-Id": "LpGqYAvuEjGBjjvnUDx5SP"
+          "x-api-key": "9753cd30401a477e816ed850c4f77e18",
+          "Magento-Environment-Id": "1f131648-b696-4bd1-af57-2021c7080b56"
         }
       },
       "analytics": {
         "aep-ims-org-id": null,
         "aep-datastream-id": null,
         "base-currency-code": "USD",
-        "environment": "Testing",
-        "environment-id": "LpGqYAvuEjGBjjvnUDx5SP",
+        "environment": "Production",
+        "environment-id": "1f131648-b696-4bd1-af57-2021c7080b56",
         "store-code": "main_website_store",
         "store-id": 1,
         "store-name": "Main Website Store",
