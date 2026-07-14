@@ -1,8 +1,8 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://mcstaging.aemshop.net/graphql",
-      "commerce-endpoint": "https://catalog-service-sandbox.adobe.io/graphql",
+      "commerce-core-endpoint": "https://catalog-service.adobe.io/graphql",
+      "commerce-endpoint": "https://catalog-service.adobe.io/graphql",
       "commerce-assets-enabled": false,
       "headers": {
         "all": {
@@ -12,8 +12,8 @@
           "Magento-Store-Code": "main_website_store",
           "Magento-Store-View-Code": "default",
           "Magento-Website-Code": "base",
-          "x-api-key": "9753cd30401a477e816ed850c4f77e18",
-          "Magento-Environment-Id": "1f131648-b696-4bd1-af57-2021c7080b56"
+          "x-api-key": "search_gql",
+          "Magento-Environment-Id": "9616d337-a22a-4d29-b9f0-e1cda4052fec"
         }
       },
       "analytics": {
@@ -21,11 +21,11 @@
         "aep-datastream-id": null,
         "base-currency-code": "USD",
         "environment": "Production",
-        "environment-id": "1f131648-b696-4bd1-af57-2021c7080b56",
+        "environment-id": "9616d337-a22a-4d29-b9f0-e1cda4052fec",
         "store-code": "main_website_store",
         "store-id": 1,
         "store-name": "Main Website Store",
-        "store-url": "https://www.aemshop.net",
+        "store-url": "https://main--rowan-store--corneliu-iancu.aem.live",
         "store-view-code": "default",
         "store-view-id": 1,
         "store-view-name": "Default Store View",
