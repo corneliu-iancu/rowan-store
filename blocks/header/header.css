@@ -8,11 +8,11 @@
 
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--color-accent);
+  background-color: var(--background-color);
   width: 100%;
   z-index: 3;
   position: fixed;
-  border-bottom: 1px solid var(--color-accent-dark);
+  border-bottom: 1px solid var(--color-neutral-300);
   box-shadow: var(--shape-shadow-3);
 }
 
@@ -28,7 +28,6 @@ header nav {
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--type-base-font-family);
-  color: var(--color-neutral-50);
 }
 
 header nav[aria-expanded='true'] {
@@ -58,6 +57,11 @@ header nav[aria-expanded='true'] {
   }
 }
 
+header nav p a[href="/collection"], header nav p {
+  font: var(--type-body-1-font);
+  font-weight: 500;
+}
+
 header nav p {
   margin: 0;
   line-height: 1;
@@ -78,7 +82,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: var(--color-neutral-50);
   color: inherit;
   overflow: initial;
   text-overflow: initial;
@@ -154,33 +158,13 @@ header nav .nav-brand a,
 header nav .nav-brand a.button:any-link {
   grid-area: brand;
   flex-basis: 128px;
-  font: var(--type-headline-2-font);
+  font: var(--type-headline-1-font);
   letter-spacing: var(--type-headline-1-letter-spacing);
   font-weight: bold;
-  color: var(--color-neutral-50);
+  color: var(--color-accent);
   background: transparent;
   border: 0;
   padding: 0;
-  position: relative;
-  place-self: center start;
-}
-
-/* growing underline on the logo, matching the top-level nav links */
-header nav .nav-brand a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background-color: var(--color-neutral-50);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.2s ease;
-}
-
-header nav .nav-brand a:hover::after {
-  transform: scaleX(1);
 }
 
 li.nav-drop img {
@@ -223,14 +207,7 @@ header nav .nav-sections ul>li>a {
 }
 
 header nav .nav-brand a:hover {
-  color: var(--color-neutral-50);
-  text-decoration: none;
-}
-
-/* nav links inherit the white bar color instead of the dark global link color */
-header nav .nav-sections a:any-link,
-header nav .nav-sections a:any-link:hover {
-  color: inherit;
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -263,19 +240,17 @@ header nav .nav-sections ul>li:empty {
 
   header nav .nav-sections .default-content-wrapper>ul>li,
   header nav .nav-sections .nav-drop {
-    border-radius: var(--shape-border-radius-1);
-    padding: var(--spacing-xxsmall) var(--spacing-small);
-    transition: background-color 0.2s ease;
+    border-radius: 4px;
+    padding: 0 var(--spacing-small);
   }
 
   header nav .nav-sections .default-content-wrapper>ul>li a {
     position: relative;
     text-decoration: none;
     padding-block: var(--spacing-xxsmall);
-    transition: color 0.2s ease;
   }
 
-  /* animated underline on top-level nav links */
+  /* red growing underline on top-level nav links */
   header nav .nav-sections .default-content-wrapper>ul>li a::after {
     content: '';
     position: absolute;
@@ -283,7 +258,7 @@ header nav .nav-sections ul>li:empty {
     bottom: -2px;
     width: 100%;
     height: 2px;
-    background-color: var(--color-neutral-50);
+    background-color: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.2s ease;
@@ -295,6 +270,7 @@ header nav .nav-sections ul>li:empty {
 
   header nav .nav-sections ul {
     display: flex;
+    justify-content: center;
     gap: 24px;
     margin: 0;
     align-items: center;
@@ -317,7 +293,6 @@ header nav .nav-sections ul>li:empty {
 
   header nav .nav-sections .default-content-wrapper>ul>li[aria-expanded='true'] .submenu-wrapper {
     background-color: var(--color-neutral-50);
-    color: var(--color-brand-700);
     box-sizing: border-box;
     left: 0;
     max-height: var(--desktop-panel-max-height);
@@ -361,10 +336,6 @@ header nav .nav-sections ul>li:empty {
     min-width: var(--desktop-item-panel-min-width);
     max-width: var(--desktop-item-panel-max-width);
   }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true'] {
-    background-color: var(--color-opacity-24);
-  }
 }
 
 /* tools */
@@ -373,7 +344,6 @@ header nav .nav-tools-panel {
   position: absolute;
   box-shadow: var(--shape-shadow-2);
   background: var(--background-color);
-  color: var(--color-brand-700);
   top: var(--nav-height);
   right: 0;
   width: 100%;
@@ -391,45 +361,25 @@ header nav .nav-tools {
   height: 100%;
   gap: var(--spacing-small);
   align-items: center;
-  background: transparent;
+  background: var(--background-color);
   z-index: 3;
 }
 
 header nav .nav-tools-wrapper>button {
-  color: var(--color-neutral-50);
+  color: var(--color-brand-700);
   background: transparent;
   padding: 10px;
   border: unset;
   cursor: pointer;
   height: 40px;
   width: 40px;
-  border-radius: var(--shape-border-radius-1);
-  transition: background-color 0.2s ease;
-}
-
-header nav .nav-tools-wrapper>button:hover {
-  background-color: var(--color-opacity-24);
 }
 
 header nav .nav-tools button.nav-cart-button {
-  position: relative;
-}
-
-/* Cart icon on ::before so the count badge (::after) is not affected by the filter */
-header nav .nav-tools button.nav-cart-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   background-image: url('../../icons/cart.svg');
   background-repeat: no-repeat;
   background-position: center;
-  filter: brightness(0) invert(1);
-}
-
-/* Force dark SVG icons to render white on the red bar */
-header nav .nav-tools button.nav-wishlist-button,
-header nav .nav-tools button.nav-search-button {
-  filter: brightness(0) invert(1);
+  position: relative;
 }
 
 header nav .nav-tools button.nav-cart-button[data-count]::after {
@@ -587,13 +537,6 @@ header .nav-search-input .search_autocomplete .popover-container {
   align-items: center;
   width: auto;
   min-width: 40px;
-  color: var(--color-neutral-50);
-}
-
-/* account/auth icon uses currentColor - keep it white on the red bar */
-.dropdown-wrapper.nav-tools-wrapper .nav-dropdown-button svg {
-  fill: currentcolor;
-  color: var(--color-neutral-50);
 }
 
 .dropdown-wrapper.nav-tools-wrapper .nav-auth-menu-panel {
@@ -701,7 +644,7 @@ header .nav-search-input .search_autocomplete .popover-container {
   }
 
   header nav[aria-expanded='true'] .nav-tools {
-    background: var(--color-accent);
+    background: var(--background-color);
     bottom: 0;
     height: auto;
     left: 0;
@@ -780,7 +723,6 @@ header .nav-search-input .search_autocomplete .popover-container {
 
   header nav .nav-sections ul>li.nav-drop.active .submenu-wrapper {
     background: var(--background-color);
-    color: var(--color-brand-700);
     display: block;
     height: 100%;
     left: 0;
@@ -797,7 +739,6 @@ header .nav-search-input .search_autocomplete .popover-container {
 
   header nav .nav-sections ul>li.nav-drop .submenu-header {
     background: var(--background-color);
-    color: var(--color-brand-700);
     height: var(--spacing-large);
     left: 0;
     position: fixed;
