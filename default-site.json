@@ -14,9 +14,6 @@
       "type": "dalive"
     }
   },
-  "folders": {
-    "/products/": "/products/default"
-  },
   "cdn": {
     "live": {
       "host": "main--rowan-store--corneliu-iancu.aem.live"
