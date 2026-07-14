@@ -39,6 +39,10 @@
   --color-alert-200: #ffebeb;
   --color-alert-500: #db7070;
   --color-alert-800: #c35050;
+
+  /* Brand accent */
+  --color-accent: #e34850;
+  --color-accent-dark: #c9252d;
   --color-button-active: var(--color-brand-700);
   --color-button-focus: var(--color-neutral-400);
   --color-button-hover: var(--color-brand-600);

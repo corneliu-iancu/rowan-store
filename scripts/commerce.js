@@ -35,6 +35,21 @@ function sanitizeName(name) {
 }
 
 /**
+ * Sanitizes a SKU for use in a URL while preserving case. The Catalog Service
+ * treats SKUs as case-sensitive, so lowercasing (as sanitizeName does) breaks
+ * product lookups (e.g. "24-MB01" must not become "24-mb01").
+ * @param {string} sku
+ * @returns {string} sanitized, case-preserving SKU
+ */
+function sanitizeSku(sku) {
+  return sku
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+/**
  * Fetch GraphQL Instances
  */
 
@@ -673,7 +688,7 @@ export function getProductLink(urlKey, sku) {
     console.warn('getProductLink: sku is missing or empty', { urlKey, sku });
   }
   const sanitizedUrlKey = urlKey ? sanitizeName(urlKey) : '';
-  const sanitizedSku = sku ? sanitizeName(sku) : '';
+  const sanitizedSku = sku ? sanitizeSku(sku) : '';
   return rootLink(`/products/${sanitizedUrlKey}/${sanitizedSku}`);
 }
 
