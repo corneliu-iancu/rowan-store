@@ -590,10 +590,13 @@ header .nav-search-input .search_autocomplete .popover-container {
   color: var(--color-neutral-50);
 }
 
-/* account/auth icon uses currentColor - keep it white on the red bar */
+/* account/auth icon has a hardcoded black stroke - force it white on the red bar */
 .dropdown-wrapper.nav-tools-wrapper .nav-dropdown-button svg {
-  fill: currentcolor;
   color: var(--color-neutral-50);
+}
+
+.dropdown-wrapper.nav-tools-wrapper .nav-dropdown-button svg [stroke] {
+  stroke: var(--color-neutral-50);
 }
 
 .dropdown-wrapper.nav-tools-wrapper .nav-auth-menu-panel {
