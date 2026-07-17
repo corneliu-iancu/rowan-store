@@ -13,7 +13,7 @@
           "Magento-Store-View-Code": "default",
           "Magento-Website-Code": "base",
           "x-api-key": "0a1abf25bc5c46c1bcc4d2f2098fe047",
-          "Magento-Environment-Id": "9616d337-a22a-4d29-b9f0-e1cda4052fec"
+          "Magento-Environment-Id": "01617ed6-b482-436c-9fe4-c1ab531b2aa5"
         }
       },
       "analytics": {
@@ -21,7 +21,7 @@
         "aep-datastream-id": null,
         "base-currency-code": "USD",
         "environment": "Production",
-        "environment-id": "9616d337-a22a-4d29-b9f0-e1cda4052fec",
+        "environment-id": "01617ed6-b482-436c-9fe4-c1ab531b2aa5",
         "store-code": "main_website_store",
         "store-id": 1,
         "store-name": "Main Website Store",
