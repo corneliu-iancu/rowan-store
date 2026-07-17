@@ -2,7 +2,7 @@
   "public": {
     "default": {
       "commerce-core-endpoint": "https://master-7rqtwti-mercg467gihmq.us-4.magentosite.cloud/graphql",
-      "commerce-endpoint": "https://catalog-service.adobe.io/graphql",
+      "commerce-endpoint": "https://catalog-service-sandbox.adobe.io/graphql",
       "commerce-assets-enabled": false,
       "headers": {
         "all": {
