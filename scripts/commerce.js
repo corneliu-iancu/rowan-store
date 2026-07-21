@@ -626,6 +626,35 @@ function createHashFromObject(obj, length = 5) {
 }
 
 /**
+ * Maps a store-view code to a BCP-47 language tag for the document `lang` attribute.
+ * Store-view codes that carry no distinct locale (e.g. the default view, the English
+ * EU fallback) map to a plain language tag.
+ */
+const STORE_VIEW_LANGS = {
+  default: 'en-US',
+  en_gb: 'en-GB',
+  fr_fr: 'fr-FR',
+  de_de: 'de-DE',
+  ro_ro: 'ro-RO',
+  en_eu: 'en',
+};
+
+/**
+ * Resolves the BCP-47 language tag for the currently active scope.
+ *
+ * Reads the resolved scope's store-view code and returns the matching language tag.
+ * Falls back to deriving `xx-YY` from an `xx_yy` store-view code, then to 'en'.
+ * @returns {string} A BCP-47 language tag, e.g. "fr-FR". Never empty.
+ */
+export function getStoreViewLang() {
+  const code = getConfigValue('headers.cs.Magento-Store-View-Code');
+  if (!code) return 'en';
+  if (STORE_VIEW_LANGS[code]) return STORE_VIEW_LANGS[code];
+  const [lang, region] = code.split('_');
+  return region ? `${lang}-${region.toUpperCase()}` : lang;
+}
+
+/**
  * Creates a commerce endpoint URL with query parameters including a cache-busting hash.
  * @returns {Promise<URL>} A promise that resolves to the endpoint URL with query parameters
  */

@@ -5,3 +5,8 @@ mountpoints:
 
 folders:
   /products/: /products/default
+  /uk/products/: /products/default
+  /fr/products/: /products/default
+  /de/products/: /products/default
+  /ro/products/: /products/default
+  /eu/products/: /products/default

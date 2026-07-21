@@ -38,6 +38,111 @@
           "rootCategory": "Mg=="
         }
       }
+    },
+    "/uk/": {
+      "headers": {
+        "all": {
+          "Store": "en_gb"
+        },
+        "cs": {
+          "Magento-Store-Code": "eu_electronics",
+          "Magento-Store-View-Code": "en_gb",
+          "Magento-Website-Code": "europe"
+        }
+      },
+      "analytics": {
+        "base-currency-code": "EUR",
+        "store-code": "eu_electronics",
+        "store-name": "EU Electronics",
+        "store-view-code": "en_gb",
+        "store-view-name": "English (UK)",
+        "website-code": "europe",
+        "website-name": "Europe"
+      }
+    },
+    "/fr/": {
+      "headers": {
+        "all": {
+          "Store": "fr_fr"
+        },
+        "cs": {
+          "Magento-Store-Code": "eu_electronics",
+          "Magento-Store-View-Code": "fr_fr",
+          "Magento-Website-Code": "europe"
+        }
+      },
+      "analytics": {
+        "base-currency-code": "EUR",
+        "store-code": "eu_electronics",
+        "store-name": "EU Electronics",
+        "store-view-code": "fr_fr",
+        "store-view-name": "Français",
+        "website-code": "europe",
+        "website-name": "Europe"
+      }
+    },
+    "/de/": {
+      "headers": {
+        "all": {
+          "Store": "de_de"
+        },
+        "cs": {
+          "Magento-Store-Code": "eu_electronics",
+          "Magento-Store-View-Code": "de_de",
+          "Magento-Website-Code": "europe"
+        }
+      },
+      "analytics": {
+        "base-currency-code": "EUR",
+        "store-code": "eu_electronics",
+        "store-name": "EU Electronics",
+        "store-view-code": "de_de",
+        "store-view-name": "Deutsch",
+        "website-code": "europe",
+        "website-name": "Europe"
+      }
+    },
+    "/ro/": {
+      "headers": {
+        "all": {
+          "Store": "ro_ro"
+        },
+        "cs": {
+          "Magento-Store-Code": "eu_fashion",
+          "Magento-Store-View-Code": "ro_ro",
+          "Magento-Website-Code": "europe"
+        }
+      },
+      "analytics": {
+        "base-currency-code": "EUR",
+        "store-code": "eu_fashion",
+        "store-name": "EU Fashion",
+        "store-view-code": "ro_ro",
+        "store-view-name": "Română",
+        "website-code": "europe",
+        "website-name": "Europe"
+      }
+    },
+    "/eu/": {
+      "headers": {
+        "all": {
+          "Store": "en_eu"
+        },
+        "cs": {
+          "Magento-Store-Code": "eu_fashion",
+          "Magento-Store-View-Code": "en_eu",
+          "Magento-Website-Code": "europe"
+        }
+      },
+      "analytics": {
+        "base-currency-code": "EUR",
+        "store-code": "eu_fashion",
+        "store-name": "EU Fashion",
+        "store-view-code": "en_eu",
+        "store-view-name": "English (EU)",
+        "website-code": "europe",
+        "website-name": "Europe"
+      }
     }
   }
 }

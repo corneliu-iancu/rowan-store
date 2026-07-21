@@ -18,6 +18,7 @@ import {
   decorateLinks,
   loadErrorPage,
   decorateSections,
+  getStoreViewLang,
   IS_UE,
   IS_DA,
 } from './commerce.js';
@@ -147,6 +148,10 @@ async function loadEager(doc) {
   if (main) {
     try {
       await initializeCommerce();
+      // Set the document language from the resolved store-view scope (config is
+      // initialized by initializeCommerce above); the 'en' set earlier is the
+      // pre-init fallback.
+      document.documentElement.lang = getStoreViewLang();
       decorateMain(main);
       applyTemplates(doc);
       await loadCommerceEager();
